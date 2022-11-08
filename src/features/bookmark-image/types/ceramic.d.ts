@@ -1,8 +1,6 @@
-interface IEnvfyTeams {
+interface IBookmarkStore {
   data: {
-    teamDid: string;
-    teamName: string;
-    membersCount: number;
+    imageCid: string;
     createdAt: number;
   }[];
 }
