@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FairsaveBookmark",
+  "type": "object",
+  "required": ["data"],
+  "additionalProperties": false,
+  "properties": {
+    "data": {
+      "type": "array",
+      "description": "Bookmarked images",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": ["imageCid", "createdAt"],
+        "additionalProperties": false,
+        "properties": {
+          "imageCid": {
+            "type": "string",
+            "description": "Uploaded image IPFS cid"
+          },
+          "createdAt": {
+            "type": "integer",
+            "description": "Date of bookmark creation"
+          }
+        }
+      }
+    }
+  }
+}
