@@ -11,12 +11,16 @@
       "uniqueItems": true,
       "items": {
         "type": "object",
-        "required": ["imageCid", "createdAt"],
+        "required": ["cid", "title", "createdAt"],
         "additionalProperties": false,
         "properties": {
-          "imageCid": {
+          "cid": {
             "type": "string",
             "description": "Uploaded image IPFS cid"
+          },
+          "title": {
+            "type": "string",
+            "description": "Uploaded image IPFS file name"
           },
           "createdAt": {
             "type": "integer",

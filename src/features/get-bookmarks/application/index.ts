@@ -8,7 +8,7 @@ import { getResolver } from "key-did-resolver";
 import { fromString } from "uint8arrays";
 import { aliases } from "../../../utils/ceramic.js";
 
-const bookmarkImage = async ({ cid, title, tag }: IBookmarkImage) => {
+const getBookmarks = async ({ tag }: IGetBookmarks) => {
   let result: ISaveBookmarkResult;
 
   const tagHashSeed = crypto.createHash("sha256").update(tag).digest("hex");
@@ -45,17 +45,11 @@ const bookmarkImage = async ({ cid, title, tag }: IBookmarkImage) => {
       bookmarks = [];
     }
 
-    bookmarks.push({ cid, title, createdAt: Date.now() });
-
-    const data = { data: [...bookmarks] };
-
-    await bookmarkStore.set("fairsave", { ...data });
-
     result = {
       state: "successful",
       data: {
         status: true,
-        msg: "Tag added to image",
+        msg: bookmarks,
       },
     };
     return result;
@@ -72,4 +66,4 @@ const bookmarkImage = async ({ cid, title, tag }: IBookmarkImage) => {
   }
 };
 
-export default bookmarkImage;
+export default getBookmarks;

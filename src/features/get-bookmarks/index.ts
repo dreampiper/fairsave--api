@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
 import { errors, results } from "../../utils/enums.js";
 import responseHandler from "../../utils/response-handler.js";
-import bookmarkImage from "./application/index.js";
+import getBookmarks from "./application/index.js";
 
 export default async (req: Request, res: Response) => {
-  const { cid, title, tag } = req.body;
+  const { tag } = req.body;
 
-  const result = await bookmarkImage({ cid, title, tag });
+  const result = await getBookmarks({ tag });
 
   switch (result.state) {
     case results.success:

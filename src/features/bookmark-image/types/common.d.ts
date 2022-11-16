@@ -1,5 +1,9 @@
 interface IBookmarkImage {
   cid: string;
+  title: string;
+  tag: string;
+}
+interface IGetBookmarks {
   tag: string;
 }
 

@@ -1,6 +1,7 @@
 interface IBookmarkStore {
   data: {
-    imageCid: string;
+    cid: string;
+    title: string;
     createdAt: number;
   }[];
 }
