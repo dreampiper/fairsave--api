@@ -34,6 +34,8 @@ app.use((req, res, next) => {
   handleError(express.json({ limit: "50mb" }), req, res, next);
 });
 
+app.use("/", express.static("public"));
+
 app.use(
   express.urlencoded({
     limit: "50mb",
